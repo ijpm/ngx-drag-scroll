@@ -255,6 +255,7 @@ export class DragScrollDirective implements OnDestroy, OnInit, OnChanges, DoChec
             this.scrollTo(ele, childrenWidth + currentClildWidth, 500);
           }
         }
+        this.currentIndex.emit(this.currIndex);
         stop();
       }
     });
@@ -419,7 +420,6 @@ export class DragScrollDirective implements OnDestroy, OnInit, OnChanges, DoChec
     } else {
       this.locateCurrentIndex();
     }
-    this.currentIndex.emit(this.currIndex);
   }
 
   public attach({disabled, snapDisabled, scrollbarHidden, yDisabled, xDisabled}: DragScrollOption): void {
