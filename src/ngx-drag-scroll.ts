@@ -82,6 +82,8 @@ export class DragScrollDirective implements OnDestroy, OnInit, OnChanges, DoChec
 
   @Output() reachesRightBound = new EventEmitter<boolean>();
 
+  @Output() currentIndex = new EventEmitter<number>();
+
   private disableScroll(axis: string): void {
     this.el.nativeElement.style[`overflow-${axis}`] = 'hidden';
   }
@@ -413,10 +415,11 @@ export class DragScrollDirective implements OnDestroy, OnInit, OnChanges, DoChec
       this.scrollTimer = window.setTimeout(() => {
         this.isScrolling = false;
         this.locateCurrentIndex(true);
-      }, 500);
+      }, 50);
     } else {
       this.locateCurrentIndex();
     }
+    this.currentIndex.emit(this.currIndex);
   }
 
   public attach({disabled, snapDisabled, scrollbarHidden, yDisabled, xDisabled}: DragScrollOption): void {
