@@ -53,42 +53,4 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  clickItem(item) {
-    console.log('itmen clicked');
-  }
-
-  remove() {
-    this.imagelist.pop();
-  }
-
-  toggleHideSB() {
-    this.hideScrollbar = !this.hideScrollbar;
-  }
-
-  toggleDisable() {
-    this.disabled = !this.disabled;
-  }
-  toggleXDisable() {
-    this.xDisabled = !this.xDisabled;
-  }
-  toggleYDisable() {
-    this.yDisabled = !this.yDisabled;
-  }
-
-  moveLeft() {
-    this.ds.moveLeft();
-  }
-
-  moveRight() {
-    this.ds.moveRight();
-  }
-
-  leftBoundStat(reachesLeftBound: boolean) {
-    this.leftNavDisabled = reachesLeftBound;
-  }
-
-  rightBoundStat(reachesRightBound: boolean) {
-    this.rightNavDisabled = reachesRightBound;
-  }
-
 }
